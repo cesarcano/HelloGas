@@ -28,6 +28,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -57,7 +58,7 @@ public class SearchFragment extends MyMapFragment implements
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR1)
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_search, container, false);
-        mapFragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map);
+
         locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
 
         if (ContextCompat.checkSelfPermission(getActivity(),
@@ -66,10 +67,12 @@ public class SearchFragment extends MyMapFragment implements
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, this);
             updateMyLocation(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
         }
-
+        mapFragment = (MapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
         searchPresenter = new SearchPresenter(this);
         searchPresenter.getPlacesInThisArea(myLocation.getLatitude(), myLocation.getLongitude());
+
         return view;
     }
 
