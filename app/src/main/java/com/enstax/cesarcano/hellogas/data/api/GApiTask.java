@@ -18,7 +18,7 @@ import org.json.JSONObject;
  * Created by cesarcanojms@gmail.com
  */
 
-public class GApiTask implements WebTask.Api{
+public class GApiTask implements WebTask.Api {
 
     private String api_url;
     private Context context;
@@ -36,10 +36,10 @@ public class GApiTask implements WebTask.Api{
         new ApiTask().execute();
     }
 
-    class ApiTask extends AsyncTask<Void, Void, JSONArray> {
+    class ApiTask extends AsyncTask<Void, Void, Void> {
 
         @Override
-        protected JSONArray doInBackground(Void... voids) {
+        protected Void doInBackground(Void... voids) {
 
             RequestQueue requestQueue = Volley.newRequestQueue(context);
 
@@ -47,7 +47,6 @@ public class GApiTask implements WebTask.Api{
                     new JsonObjectRequest(Request.Method.GET, api_url, null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("----> Ejecutando", "onResponse: ");
                             presenter.response(response);
 
                         }
