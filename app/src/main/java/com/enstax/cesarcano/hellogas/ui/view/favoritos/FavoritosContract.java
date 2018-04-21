@@ -11,12 +11,10 @@ import com.google.firebase.auth.FirebaseUser;
 public interface FavoritosContract {
     interface View extends BaseView {
         void loadList();
-        void setUser(FirebaseUser user);
     }
 
     interface Presenter extends BasePresenter<FavoritosContract.View> {
         void loadFavoritos();
-        void getCurrentUser();
         void deleteFavorito();
     }
 }
