@@ -50,7 +50,7 @@ public class SearchFragment extends MyMapFragment implements
     MapFragment mapFragment;
     // PARÁMETROS DE MAPA DEFAULT (Se carga la locacion)
     private final int MAX_ZOOM = 15;
-    private final int MIN_ZOOM = 13;
+    private final int MIN_ZOOM = 12;
     private final int DEFAULT_ZOOM = 14;
 
     private SearchContract.Presenter searchPresenter;
