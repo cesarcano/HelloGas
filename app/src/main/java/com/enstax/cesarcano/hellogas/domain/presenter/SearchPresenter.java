@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.enstax.cesarcano.hellogas.data.api.GApiTask;
 import com.enstax.cesarcano.hellogas.data.api.WebTask;
+import com.enstax.cesarcano.hellogas.data.local.GasolinerasTableTransaction;
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
 import com.enstax.cesarcano.hellogas.ui.view.search.SearchContract;
 import com.enstax.cesarcano.hellogas.ui.view.search.SearchFragment;
@@ -64,13 +65,15 @@ public class SearchPresenter implements SearchContract.Presenter, WebTask.Presen
                 Double longitud = place.getDouble("longitud");
                 String id = place.getString("id");
                 String domicilio = place.getString("direccion");
-                String marca = place.getString("nombre");
-
-                Gasolinera gasolinera = new Gasolinera(id, marca, domicilio, latitud, longitud);
+                String marca = place.getString("marca");
+                String nombre = place.getString("marca");
+                Gasolinera gasolinera = new Gasolinera(id, marca, domicilio, latitud, longitud, nombre);
 
                 gasolineras.add(gasolinera);
             }
-
+            GasolinerasTableTransaction transaction = new GasolinerasTableTransaction(view.getContext());
+            transaction.vaciarGasolineras();
+            transaction.createGasolinera(gasolineras);
             view.loadPlaces(gasolineras);
         } catch (JSONException e) {
             e.printStackTrace();

@@ -30,6 +30,7 @@ import com.google.android.gms.maps.MapFragment;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
@@ -39,7 +40,7 @@ import java.util.ArrayList;
  */
 
 public class SearchFragment extends MyMapFragment implements
-        OnMapReadyCallback, LocationListener, SearchContract.View{
+        OnMapReadyCallback, LocationListener, SearchContract.View, GoogleMap.OnMarkerClickListener{
     private GoogleMap map;
     private Location myLocation;
     private LocationManager locationManager;
@@ -51,7 +52,9 @@ public class SearchFragment extends MyMapFragment implements
     // PARÁMETROS DE MAPA DEFAULT (Se carga la locacion)
     private final int MAX_ZOOM = 15;
     private final int MIN_ZOOM = 12;
-    private final int DEFAULT_ZOOM = 14;
+    private final int DEFAULT_ZOOM = 13;
+
+    private Marker mMarker;
 
     private SearchContract.Presenter searchPresenter;
 
@@ -90,9 +93,11 @@ public class SearchFragment extends MyMapFragment implements
             updateMyLocation(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
             location = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM));
-            map.addMarker(new MarkerOptions().position(location));
+            map.addMarker(new MarkerOptions().position(location).title("Estás aquí"));
 
         }
+
+        map.setOnMarkerClickListener(this);
     }
 
     private void updateMyLocation(Location location) {
@@ -126,11 +131,14 @@ public class SearchFragment extends MyMapFragment implements
     public void loadPlaces(ArrayList<Gasolinera> gasolineras) {
         for (int i = 0; i < gasolineras.size(); i++) {
             Gasolinera gasolinera = gasolineras.get(i);
-            map.addMarker(
+            mMarker = map.addMarker(
                     new MarkerOptions().
-                            position(new LatLng(gasolinera.getLatitud(), gasolinera.getLongitud())));
+                            position(new LatLng(gasolinera.getLatitud(), gasolinera.getLongitud()))
+                            .title(gasolinera.getMarca())
+            .snippet("Prueba"));
             Log.i("GASOLINERA " + i + " :", gasolinera.toString());
         }
+
         hideProgressDialog();
     }
 
@@ -147,5 +155,10 @@ public class SearchFragment extends MyMapFragment implements
     @Override
     public void error() {
         Util.showMessage(getContext(), getString(R.string.search_error));
+    }
+
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        return false;
     }
 }

@@ -8,6 +8,7 @@ public interface ModelBD {
     interface Gasolineras {
         String TABLE_NAME = "gasolineras";
         String ID = "id";
+        String NOMBRE = "nombre";
         String MARCA = "marca";
         String DIRECCION = "direccion";
         String VALORACION = "valoracion";

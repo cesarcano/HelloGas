@@ -90,6 +90,7 @@ public class GasolinerasTableTransaction {
             values.put(ModelBD.Gasolineras.LATITUD, gasolinera.getLatitud());
             values.put(ModelBD.Gasolineras.LONGITUD, gasolinera.getLongitud());
             values.put(ModelBD.Gasolineras.MARCA, gasolinera.getMarca());
+            values.put(ModelBD.Gasolineras.NOMBRE, gasolinera.getNombre());
 
             db.insert(ModelBD.Gasolineras.TABLE_NAME, null, values);
             Log.d(TAG, "createGasolinera: succesful");
