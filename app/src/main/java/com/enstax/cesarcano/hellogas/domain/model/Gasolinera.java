@@ -39,6 +39,16 @@ public class Gasolinera {
         this.has_promo = has_promo;
     }
 
+    // Constructor para favoritos
+    public Gasolinera(String id, String marca, String domicilio, Double latitud, Double longitud) {
+        this.id = id;
+        this.marca = marca;
+        this.domicilio = domicilio;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.posicion = new Geopunto(latitud, longitud);
+    }
+
     public String getId() {
         return id;
     }
