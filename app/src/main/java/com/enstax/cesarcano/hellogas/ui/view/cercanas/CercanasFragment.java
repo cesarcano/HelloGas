@@ -68,9 +68,8 @@ public class CercanasFragment extends BaseFragment implements CercanasContract.V
         BottomNavigationView navigation = view.findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
         BottomNavigationViewHelper.removeShiftMode(navigation);
-        navigation.setSelectedItemId(R.id.filtro_precio);
-
         ButterKnife.bind(this, view);
+        navigation.setSelectedItemId(R.id.filtro_precio);
         return view;
     }
 
@@ -82,13 +81,14 @@ public class CercanasFragment extends BaseFragment implements CercanasContract.V
 
     @Override
     public void loadList(ArrayList<Gasolinera> gasolineras) {
+        ArrayList<Gasolinera> gasList = new ArrayList<>();
+        gasList = gasolineras;
         for (Gasolinera gasolinera: gasolineras) {
             Log.d("loadList: ", gasolinera.toString());
         }
-        /*
-        ListGasolineras adapter = new ListGasolineras(getContext(), gasolineras);
+        ListGasolineras adapter = new ListGasolineras(getContext(), gasList);
         list_Cercanas.setAdapter(adapter);
-        */
+        hideProgressDialog();
     }
 
     @Override

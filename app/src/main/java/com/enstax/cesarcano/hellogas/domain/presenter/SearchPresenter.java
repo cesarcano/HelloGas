@@ -66,8 +66,10 @@ public class SearchPresenter implements SearchContract.Presenter, WebTask.Presen
                 String id = place.getString("id");
                 String domicilio = place.getString("direccion");
                 String marca = place.getString("marca");
-                String nombre = place.getString("marca");
-                Gasolinera gasolinera = new Gasolinera(id, marca, domicilio, latitud, longitud, nombre);
+                String nombre = place.getString("nombre");
+                int promo = place.getInt("promocion");
+                float valoracion = Float.parseFloat(place.getString("calificacion"));
+                Gasolinera gasolinera = new Gasolinera(id, marca, domicilio, latitud, longitud, nombre, valoracion, promo);
 
                 gasolineras.add(gasolinera);
             }

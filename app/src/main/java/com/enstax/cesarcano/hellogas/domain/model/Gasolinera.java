@@ -16,11 +16,8 @@ public class Gasolinera {
     private String fecha_actualizacion;
     private String nombre;
 
-    public Gasolinera() {
-    }
-
     // CONSTRUCTOR PARA MARCADORES EN MAPA
-    public Gasolinera(String id, String marca, String domicilio, Double latitud, Double longitud, String nombre) {
+    public Gasolinera(String id, String marca, String domicilio, Double latitud, Double longitud, String nombre, float valoracion, int promo) {
         this.id = id;
         this.marca = marca;
         this.domicilio = domicilio;
@@ -28,6 +25,8 @@ public class Gasolinera {
         this.longitud = longitud;
         this.posicion = new Geopunto(latitud, longitud);
         this.nombre = nombre;
+        this.valoracion = valoracion;
+        this.has_promo = promo;
     }
 
     // Constructor para lista de Gasolineras Cercanas
@@ -126,8 +125,11 @@ public class Gasolinera {
                 "id='" + id + '\'' +
                 ", marca='" + marca + '\'' +
                 ", domicilio='" + domicilio + '\'' +
+                ", valoracion=" + valoracion +
                 ", latitud=" + latitud +
                 ", longitud=" + longitud +
+                ", has_promo=" + has_promo +
+                ", nombre='" + nombre + '\'' +
                 '}';
     }
 }

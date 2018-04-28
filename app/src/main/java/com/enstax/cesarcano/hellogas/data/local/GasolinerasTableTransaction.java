@@ -65,12 +65,15 @@ public class GasolinerasTableTransaction {
     public Cursor getGasolinerasByPrecio() {
         SQLiteDatabase db = adminSQLite.getReadableDatabase();
         // TODO Por ultimo precio actualizado
-        String query = String.format("SELECT %S, %S, %S, %S, %S FROM %S;",
+        String query = String.format("SELECT %S, %S, %S, %S, %S, %S, %S, %S  FROM %S;",
                 ModelBD.Gasolineras.ID,
                 ModelBD.Gasolineras.MARCA,
                 ModelBD.Gasolineras.DIRECCION,
+                ModelBD.Gasolineras.VALORACION,
                 ModelBD.Gasolineras.LATITUD,
                 ModelBD.Gasolineras.LONGITUD,
+                ModelBD.Gasolineras.NOMBRE,
+                ModelBD.Gasolineras.HASPROMO,
                 ModelBD.Gasolineras.TABLE_NAME);
         Cursor c = db.rawQuery(query, null);
         if (c != null) {
@@ -91,6 +94,8 @@ public class GasolinerasTableTransaction {
             values.put(ModelBD.Gasolineras.LONGITUD, gasolinera.getLongitud());
             values.put(ModelBD.Gasolineras.MARCA, gasolinera.getMarca());
             values.put(ModelBD.Gasolineras.NOMBRE, gasolinera.getNombre());
+            values.put(ModelBD.Gasolineras.VALORACION, gasolinera.getValoracion());
+            values.put(ModelBD.Gasolineras.HASPROMO, gasolinera.getHas_promo());
 
             db.insert(ModelBD.Gasolineras.TABLE_NAME, null, values);
             Log.d(TAG, "createGasolinera: succesful");

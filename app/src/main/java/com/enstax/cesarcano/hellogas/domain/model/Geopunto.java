@@ -7,11 +7,10 @@ public class Geopunto {
     private double latitud;
     private double longitud;
 
-    Geopunto(double latitud, double longitud) {
+    public Geopunto(double latitud, double longitud) {
         this.latitud = latitud;
         this.longitud = longitud;
     }
-
 
     public double getDistancia(Geopunto punto) {
         final double RADIO_TIERRA = 6371000; // distancia en metros
