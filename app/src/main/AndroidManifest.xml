@@ -30,7 +30,11 @@
         <activity android:name=".ui.view.login.LoginActivity"
             android:label="@string/empty"  />
         <activity android:name=".ui.view.gasolinera.GasolineraActivity"
-            android:label="@string/empty"  />
+            android:label="@string/empty">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ui.view.home.HomeActivity" />
+        </activity>
         <activity android:name=".ui.view.signup.SignUpActivity"
             android:label="@string/empty"  />
         <activity android:name=".ui.view.coment.ComentarioActivity"
