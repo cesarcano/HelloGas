@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
@@ -18,6 +17,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
+import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.GasolineraPresenter;
 import com.enstax.cesarcano.hellogas.ui.helper.base.TabFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,11 +38,13 @@ import butterknife.OnClick;
  * Created by cesarcanojmz@gmail.com
  */
 
-public class DetalleGasolinera extends TabFragment {
+public class DetalleGasolinera extends TabFragment implements DetalleGasContract.View {
     // InfoGas
     private String idgasolinera;
     private GoogleMap map;
     private Gasolinera gasolinera;
+
+    private DetalleGasContract.Presenter presenter;
 
     @BindView(R.id.tv_marca) TextView tv_marca;
     @BindView(R.id.tv_direccion) TextView tv_direccion;
@@ -71,6 +73,9 @@ public class DetalleGasolinera extends TabFragment {
 
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
+        presenter = new GasolineraPresenter(this, getContext());
+        presenter.attachView(this);
+        presenter.getInfo(idgasolinera);
         try {
             MapsInitializer.initialize(getActivity().getApplicationContext());
         } catch (Exception e) {
@@ -103,8 +108,6 @@ public class DetalleGasolinera extends TabFragment {
                 }
             }
         });
-
-
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -146,5 +149,25 @@ public class DetalleGasolinera extends TabFragment {
         }
         Intent intent = new Intent(Intent.ACTION_VIEW, uri);
         startActivity(intent);
+    }
+
+    @Override
+    public void loading() {
+        showProgressDialog();
+    }
+
+    @Override
+    public void error() {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void loadInfo(Gasolinera gasolinera) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void heart() {
+        hideProgressDialog();
     }
 }
