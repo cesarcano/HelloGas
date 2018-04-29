@@ -4,6 +4,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.enstax.cesarcano.hellogas.ui.view.gasolinera.comentarios.ComentariosGasolinera;
+import com.enstax.cesarcano.hellogas.ui.view.gasolinera.detalle.DetalleGasolinera;
+
 
 /**
  * Created by cesarcanojmz@gmail.com

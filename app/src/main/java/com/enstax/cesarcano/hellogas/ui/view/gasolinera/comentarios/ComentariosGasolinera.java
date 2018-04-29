@@ -1,4 +1,4 @@
-package com.enstax.cesarcano.hellogas.ui.view.gasolinera;
+package com.enstax.cesarcano.hellogas.ui.view.gasolinera.comentarios;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

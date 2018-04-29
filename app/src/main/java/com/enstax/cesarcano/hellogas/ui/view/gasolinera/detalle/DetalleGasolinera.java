@@ -1,4 +1,4 @@
-package com.enstax.cesarcano.hellogas.ui.view.gasolinera;
+package com.enstax.cesarcano.hellogas.ui.view.gasolinera.detalle;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -18,6 +18,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
+import com.enstax.cesarcano.hellogas.ui.helper.base.TabFragment;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -37,11 +38,11 @@ import butterknife.OnClick;
  * Created by cesarcanojmz@gmail.com
  */
 
-public class DetalleGasolinera extends Fragment {
+public class DetalleGasolinera extends TabFragment {
     // InfoGas
     private String idgasolinera;
-    GoogleMap map;
-    Gasolinera gasolinera;
+    private GoogleMap map;
+    private Gasolinera gasolinera;
 
     @BindView(R.id.tv_marca) TextView tv_marca;
     @BindView(R.id.tv_direccion) TextView tv_direccion;
@@ -66,7 +67,7 @@ public class DetalleGasolinera extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_gasolinera_detalle, container, false);
 
-        ButterKnife.bind(getActivity(), view);
+        ButterKnife.bind(this, view);
 
         mapView.onCreate(savedInstanceState);
         mapView.onResume();
@@ -131,21 +132,6 @@ public class DetalleGasolinera extends Fragment {
 
     public void setIdgasolinera(String idgasolinera) {
         this.idgasolinera = idgasolinera;
-    }
-
-    void dialogForServices() {
-        new AlertDialog.Builder(getContext())
-                .setTitle("El servicio no ha sido reportado")
-                .setMessage("¿Desea reportarlo?")
-                .setPositiveButton("Si", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        addComentario(DEFAULT_RATING_SERVICE);
-                    }
-                })
-                .setNegativeButton("No", null)
-                .create()
-                .show();
     }
 
     @OnClick(R.id.iv_comollegar)
