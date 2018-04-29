@@ -13,9 +13,11 @@ import android.widget.Toast;
 import com.enstax.cesarcano.hellogas.R;
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
 import com.enstax.cesarcano.hellogas.domain.presenter.CercanasPresenter;
+import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
 import com.enstax.cesarcano.hellogas.ui.view.cercanas.adapter.ListGasolineras;
 import com.enstax.cesarcano.hellogas.ui.helper.BottomNavigationViewHelper;
 import com.enstax.cesarcano.hellogas.ui.helper.base.BaseFragment;
+import com.enstax.cesarcano.hellogas.ui.view.gasolinera.GasolineraActivity;
 
 
 import java.util.ArrayList;
@@ -75,7 +77,9 @@ public class CercanasFragment extends BaseFragment implements CercanasContract.V
 
     @OnItemClick(R.id.list)
     void onItemClick(int position) {
-        Toast.makeText(getActivity(), "CLICK EN ITEM " + position, Toast.LENGTH_SHORT).show();
+        Gasolinera gasolinera = (Gasolinera) list_Cercanas.getItemAtPosition(position);
+        Util.setIntentExtra(getActivity(), GasolineraActivity.class, gasolinera.getId());
+        Util.showMessage(getActivity(), gasolinera.getId());
     }
 
 

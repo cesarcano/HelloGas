@@ -1,9 +1,14 @@
 package com.enstax.cesarcano.hellogas.ui.view.gasolinera;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.enstax.cesarcano.hellogas.R;
 import com.enstax.cesarcano.hellogas.ui.helper.base.BaseActivity;
+import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
+
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 
 /**
@@ -21,13 +26,13 @@ public class GasolineraActivity extends BaseActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        /*
         TabLayout tabLayout = findViewById(R.id.tab_layout);
         tabLayout.addTab(tabLayout.newTab().setText("Descripción "));
         tabLayout.addTab(tabLayout.newTab().setText("Opiniones"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Intent intent = getIntent();
-        id_gas = intent.getStringExtra("id_gasolinera");
+        id_gas = intent.getStringExtra("id");
+        Util.showMessage(this, id_gas);
         final ViewPager viewPager = findViewById(R.id.view_pager);
         final GasolineraPageAdapter pagerAdapter =
                 new GasolineraPageAdapter(getSupportFragmentManager(),
@@ -46,6 +51,5 @@ public class GasolineraActivity extends BaseActivity {
             public void onTabReselected(TabLayout.Tab tab) {
             }
         });
-        */
     }
 }
