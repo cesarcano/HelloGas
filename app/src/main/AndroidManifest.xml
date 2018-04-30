@@ -38,7 +38,8 @@
         <activity android:name=".ui.view.signup.SignUpActivity"
             android:label="@string/empty"  />
         <activity android:name=".ui.view.coment.ComentarioActivity"
-            android:label="@string/empty"  />
+            android:label="Comentario"
+            android:theme="@style/Base.Theme.AppCompat.Light.Dialog.Alert"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
