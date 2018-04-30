@@ -19,6 +19,8 @@ import android.widget.TextView;
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
 import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.GasolineraPresenter;
 import com.enstax.cesarcano.hellogas.ui.helper.base.TabFragment;
+import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
+import com.enstax.cesarcano.hellogas.ui.view.coment.ComentarioActivity;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -83,7 +85,7 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
                         .setPositiveButton("Si", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                addComentario(rating);
+                                addComentario();
                             }
                         })
                         .setNegativeButton("No", null)
@@ -96,7 +98,8 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
     }
 
 
-    private void addComentario(float rating) {
+    private void addComentario() {
+        Util.setIntent(getContext(), ComentarioActivity.class);
     }
 
     public void setIdgasolinera(String idgasolinera) {

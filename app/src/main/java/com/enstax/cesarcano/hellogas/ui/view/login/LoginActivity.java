@@ -29,16 +29,11 @@ import butterknife.OnClick;
 
 public class LoginActivity extends BaseActivity implements LoginContract.View {
 
-    @BindView(R.id.eT_user)
-    EditText et_user;
-    @BindView(R.id.eT_password)
-    EditText et_password;
-    @BindView(R.id.b_login)
-    Button b_login;
-    @BindView(R.id.b_flogin)
-    Button b_fbLogin;
-    @BindView(R.id.tv_crearCuenta)
-    TextView tv_crearCuenta;
+    @BindView(R.id.eT_user) EditText et_user;
+    @BindView(R.id.eT_password) EditText et_password;
+    @BindView(R.id.b_login) Button b_login;
+    @BindView(R.id.b_flogin) Button b_fbLogin;
+    @BindView(R.id.tv_crearCuenta) TextView tv_crearCuenta;
     @BindString(R.string.invalid_fields) String msg;
     @BindString(R.string.login_succes) String loginSucces;
     @BindString(R.string.login_error) String loginError;
