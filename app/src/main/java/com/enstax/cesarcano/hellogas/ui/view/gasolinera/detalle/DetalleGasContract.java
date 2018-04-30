@@ -17,6 +17,5 @@ public interface DetalleGasContract {
     interface Presenter extends BasePresenter<DetalleGasContract.View>{
         void getInfo(String id);
         void setFavorite();
-        void setInfo(Gasolinera gasolinera);
     }
 }

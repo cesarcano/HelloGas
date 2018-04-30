@@ -49,6 +49,17 @@ public class Gasolinera {
         this.posicion = new Geopunto(latitud, longitud);
     }
 
+    // COSTRUCTOR DE DETALLE
+    public Gasolinera(String id, String marca, String domicilio, float valoracion, Double latitud, Double longitud, String nombre) {
+        this.id = id;
+        this.marca = marca;
+        this.domicilio = domicilio;
+        this.valoracion = valoracion;
+        this.latitud = latitud;
+        this.longitud = longitud;
+        this.nombre = nombre;
+    }
+
     public String getId() {
         return id;
     }

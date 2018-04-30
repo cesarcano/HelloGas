@@ -15,7 +15,7 @@
             android:layout_alignParentLeft="true"
             android:textColor="@color/colorAccent"
             android:textSize="35sp"
-            android:text="Pemex" />
+            android:text="@string/cargando" />
         <ImageView
             android:id="@+id/iv_favorite"
             android:layout_width="wrap_content"
@@ -50,7 +50,7 @@
             android:layout_below="@id/tv_marca"
             android:layout_marginLeft="10dp"
             android:gravity="center_vertical"
-            android:text="Av. Reforma 666 y Av. de las palmas, Del Cuahtemoc CDMX"/>
+            android:text="@string/cargando"/>
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
@@ -88,7 +88,7 @@
             android:textColor="@android:color/holo_orange_dark"
             android:layout_marginTop="5dp"
             android:textSize="30sp"
-            android:text="4.5"/>
+            android:text="@string/cargando"/>
         <RatingBar
             android:id="@+id/rating_lugar"
             android:layout_width="wrap_content"

@@ -10,6 +10,6 @@ public interface Gasolinera {
     }
 
     interface Iterator {
-        void load(Gasolinera gasolinera);
+        void load(com.enstax.cesarcano.hellogas.domain.model.Gasolinera gasolinera);
     }
 }

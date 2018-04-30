@@ -63,8 +63,6 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
 
     private final float DEFAULT_ZOOM = (float) 14.5;
 
-    private final float DEFAULT_RATING_SERVICE = (float) 3;
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_gasolinera_detalle, container, false);
@@ -76,38 +74,6 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
         presenter = new GasolineraPresenter(this, getContext());
         presenter.attachView(this);
         presenter.getInfo(idgasolinera);
-        try {
-            MapsInitializer.initialize(getActivity().getApplicationContext());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        mapView.getMapAsync(new OnMapReadyCallback() {
-            @Override
-            public void onMapReady(GoogleMap googleMap) {
-                map = googleMap;
-                LatLng location;
-                try {
-                    map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
-                    map.getUiSettings().setCompassEnabled(true);
-                    map.getUiSettings().setAllGesturesEnabled(false);
-                    if (ContextCompat.checkSelfPermission(getActivity(),
-                            android.Manifest.permission.ACCESS_FINE_LOCATION) ==
-                            PackageManager.PERMISSION_GRANTED) {
-                        location = new LatLng(gasolinera.getPosicion().getLatitud(), gasolinera.getPosicion().getLongitud());
-                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM));
-                        map.addMarker(new MarkerOptions().position(location));
-                        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                            @Override
-                            public boolean onMarkerClick(Marker marker) {
-                                return true;
-                            }
-                        });
-                    }
-                } catch (Exception e) {
-                    Log.e("Error Location", e.getLocalizedMessage());
-                }
-            }
-        });
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
@@ -140,8 +106,8 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
     @OnClick(R.id.iv_comollegar)
     public void comoLlegar(){
         Uri uri;
-        double lat = gasolinera.getPosicion().getLatitud();
-        double lon = gasolinera.getPosicion().getLongitud();
+        double lat = gasolinera.getLatitud();
+        double lon = gasolinera.getLongitud();
         if(lat != 0 || lon != 0 ) {
             uri = Uri.parse("geo:" + lat + "," + lon);
         } else {
@@ -163,11 +129,57 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
 
     @Override
     public void loadInfo(Gasolinera gasolinera) {
-        hideProgressDialog();
+        Log.d("----> GASOLINERA", gasolinera.toString() );
+        this.gasolinera = gasolinera;
+        cargarMapa(gasolinera.getLatitud(), gasolinera.getLongitud());
+        cargarTextos(gasolinera.getMarca(), gasolinera.getDomicilio(), gasolinera.getValoracion());
     }
 
     @Override
     public void heart() {
         hideProgressDialog();
+    }
+
+    private void cargarMapa(final Double lat, final Double lng) {
+        try {
+            MapsInitializer.initialize(getActivity().getApplicationContext());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        mapView.getMapAsync(new OnMapReadyCallback() {
+            @Override
+            public void onMapReady(GoogleMap googleMap) {
+                map = googleMap;
+                LatLng location;
+                try {
+                    map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
+                    map.getUiSettings().setCompassEnabled(true);
+                    map.getUiSettings().setAllGesturesEnabled(false);
+                    if (ContextCompat.checkSelfPermission(getActivity(),
+                            android.Manifest.permission.ACCESS_FINE_LOCATION) ==
+                            PackageManager.PERMISSION_GRANTED) {
+                        location = new LatLng(lat, lng);
+                        map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM));
+                        map.addMarker(new MarkerOptions().position(location));
+                        map.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                            @Override
+                            public boolean onMarkerClick(Marker marker) {
+                                return true;
+                            }
+                        });
+                    }
+                } catch (Exception e) {
+                    Log.e("Error Location", e.getLocalizedMessage());
+                }
+            }
+        });
+        hideProgressDialog();
+    }
+
+    private void cargarTextos(String marca, String direccion, float ranking) {
+        tv_marca.setText(marca);
+        tv_direccion.setText(direccion);
+        tv_calificacion.setText(String.valueOf(ranking));
+        ratingBar.setRating(ranking);
     }
 }
