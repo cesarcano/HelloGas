@@ -88,17 +88,23 @@
             android:textColor="@android:color/holo_orange_dark"
             android:layout_marginTop="5dp"
             android:textSize="30sp"
-            android:text="@string/cargando"/>
-        <RatingBar
-            android:id="@+id/rating_lugar"
+            android:text="@string/suspensivos"/>
+        <LinearLayout
+            android:id="@+id/ratign_content"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/map"
             android:layout_marginLeft="5dp"
-            android:layout_toRightOf="@id/tv_calificacion"
-            android:numStars="5"
-            android:rating="3.4"
-            android:theme="@style/RatingBar" />
+            android:layout_toRightOf="@id/tv_calificacion">
+            <RatingBar
+                android:id="@+id/rating_lugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:numStars="5"
+                android:rating="3.4"
+                android:clickable="false"
+                android:theme="@style/RatingBar" />
+        </LinearLayout>
         <TableLayout
             android:id="@+id/table_productos"
             android:layout_width="match_parent"

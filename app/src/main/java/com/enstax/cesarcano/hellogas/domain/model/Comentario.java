@@ -5,34 +5,31 @@ package com.enstax.cesarcano.hellogas.domain.model;
  */
 
 public class Comentario {
-    private int id;
+    private String id;
     private String usuario_id;
     private float calificacion;
     private String comentario;
     private long fecha_creacion;
     private int likes;
     private int dislikes;
-    private int item_id;
+    private String item_id;
     private int user_id;
 
     public Comentario() {
     }
 
-    public Comentario(int id, String usuario_id, float calificacion, String comentario, int likes, int dislikes, int item_id) {
-        this.id = id;
-        this.usuario_id = usuario_id;
+    // CONSTRUCTOR PARA CUANDO SE ENVÍA UN COMENTARIO
+    public Comentario(String item_id, float calificacion, String comentario) {
+        this.item_id = item_id;
         this.calificacion = calificacion;
         this.comentario = comentario;
-        this.likes = likes;
-        this.dislikes = dislikes;
-        this.item_id = item_id;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -84,11 +81,11 @@ public class Comentario {
         this.dislikes = dislikes;
     }
 
-    public int getItem_id() {
+    public String getItem_id() {
         return item_id;
     }
 
-    public void setItem_id(int item_id) {
+    public void setItem_id(String item_id) {
         this.item_id = item_id;
     }
 

@@ -32,7 +32,6 @@ public class GasolineraActivity extends BaseActivity {
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
         Intent intent = getIntent();
         id_gas = intent.getStringExtra("id");
-        Util.showMessage(this, id_gas);
         final ViewPager viewPager = findViewById(R.id.view_pager);
         final GasolineraPageAdapter pagerAdapter =
                 new GasolineraPageAdapter(getSupportFragmentManager(),

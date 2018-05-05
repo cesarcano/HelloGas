@@ -79,7 +79,6 @@ public class CercanasFragment extends BaseFragment implements CercanasContract.V
     void onItemClick(int position) {
         Gasolinera gasolinera = (Gasolinera) list_Cercanas.getItemAtPosition(position);
         Util.setIntentExtra(getActivity(), GasolineraActivity.class, gasolinera.getId());
-        Util.showMessage(getActivity(), gasolinera.getId());
     }
 
 

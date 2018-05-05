@@ -74,14 +74,14 @@ public class SearchFragment extends MyMapFragment implements
         mapFragment.getMapAsync(this);
 
         searchPresenter = new SearchPresenter(this);
-        searchPresenter.getPlacesInThisArea(myLocation.getLatitude(), myLocation.getLongitude());
+        searchPresenter.getPlacesInThisArea(19.4582572274277, -99.1273592784811);
 
         return view;
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-        LatLng location = new LatLng(DEFAULT_LAT, DEFAULT_LON);
+        LatLng location = new LatLng(19.4582572274277, -99.1273592784811);
         map = googleMap;
         map.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         map.getUiSettings().setCompassEnabled(true);
@@ -91,7 +91,7 @@ public class SearchFragment extends MyMapFragment implements
                 android.Manifest.permission.ACCESS_FINE_LOCATION) ==
                 PackageManager.PERMISSION_GRANTED) {
             updateMyLocation(locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER));
-            location = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
+            //location = new LatLng(myLocation.getLatitude(), myLocation.getLongitude());
             map.moveCamera(CameraUpdateFactory.newLatLngZoom(location, DEFAULT_ZOOM));
             map.addMarker(new MarkerOptions().position(location).title("Estás aquí"));
 
@@ -101,7 +101,7 @@ public class SearchFragment extends MyMapFragment implements
     }
 
     private void updateMyLocation(Location location) {
-        if (location != null && myLocation == null) {
+        if (location != null) {
             myLocation = location;
             showProgressDialog();
         }

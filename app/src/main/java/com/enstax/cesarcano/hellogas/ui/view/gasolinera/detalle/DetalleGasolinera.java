@@ -62,6 +62,7 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
     @BindView(R.id.ll_shop) LinearLayout ll_shop;
     @BindView(R.id.iv_comollegar) LinearLayout iv_como;
     @BindView(R.id.mapView) MapView mapView;
+    @BindView(R.id.ratign_content) LinearLayout rating_content;
 
     private final float DEFAULT_ZOOM = (float) 14.5;
 
@@ -76,7 +77,7 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
         presenter = new GasolineraPresenter(this, getContext());
         presenter.attachView(this);
         presenter.getInfo(idgasolinera);
-
+        
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, final float rating, boolean fromUser) {
@@ -99,7 +100,7 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
 
 
     private void addComentario() {
-        Util.setIntent(getContext(), ComentarioActivity.class);
+        Util.setIntentExtra(getContext(), ComentarioActivity.class, idgasolinera);
     }
 
     public void setIdgasolinera(String idgasolinera) {

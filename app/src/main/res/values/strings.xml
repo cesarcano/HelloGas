@@ -45,6 +45,7 @@
     <string name="search_error">Error al cargar el mapa</string>
     <string name="cargando">cargando...</string>
     <string name="serviceis">¿Cómo fue el servicio?</string>
+    <string name="suspensivos">...</string>
 
     <!-- TODO SUSTITUIR POR ARRAY DE BD -->
     <!-- LISTA DE COMBUSTIBLES -->
