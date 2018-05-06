@@ -14,7 +14,6 @@ import java.util.ArrayList;
 public class FavoritosPresenter implements FavoritosContract.Presenter, Favoritos.Iterator {
 
     private FavoritosContract.View favoritosView;
-    private Favoritos.Set favoritoUpdate;
 
     public FavoritosPresenter(FavoritosFragment favoritosFragment) {
         this.favoritosView = favoritosFragment;

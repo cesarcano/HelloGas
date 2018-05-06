@@ -30,19 +30,18 @@ public class GetDetalleGas implements WebTask.Presenter, Gasolinera.Get  {
     @Override
     public void response(JSONObject jsonObject) {
         try {
-                JSONObject place = jsonObject.getJSONObject("response");
+            JSONObject place = jsonObject.getJSONObject("response");
             Log.d("GET DETALLE", "response: " + place.toString());
-                Double latitud = place.getDouble("latitud");
-                Double longitud = place.getDouble("longitud");
-                String id = place.getString("id");
-                String domicilio = place.getString("direccion");
-                String marca = place.getString("marca");
-                String nombre = place.getString("nombre");
-                int promo = place.getInt("promocion");
-                float calificacion = Float.valueOf(place.getString("calificacion"));
-                com.enstax.cesarcano.hellogas.domain.model
-                        .Gasolinera gasolinera = new com.enstax.cesarcano.hellogas.domain.model.
-                        Gasolinera(id, marca, domicilio, calificacion, latitud, longitud, nombre);
+            Double latitud = place.getDouble("latitud");
+            Double longitud = place.getDouble("longitud");
+            String id = place.getString("id");
+            String domicilio = place.getString("direccion");
+            String marca = place.getString("marca");
+            String nombre = place.getString("nombre");
+            float calificacion = Float.valueOf(place.getString("calificacion"));
+            com.enstax.cesarcano.hellogas.domain.model
+                    .Gasolinera gasolinera = new com.enstax.cesarcano.hellogas.domain.model.
+                    Gasolinera(id, marca, domicilio, calificacion, latitud, longitud, nombre);
             presenter.load(gasolinera);
         } catch (JSONException e) {
             e.printStackTrace();
