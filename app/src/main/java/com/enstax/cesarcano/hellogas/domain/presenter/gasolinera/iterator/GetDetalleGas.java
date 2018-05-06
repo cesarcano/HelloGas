@@ -29,7 +29,6 @@ public class GetDetalleGas implements WebTask.Presenter, Gasolinera.Get  {
 
     @Override
     public void response(JSONObject jsonObject) {
-        ArrayList<com.enstax.cesarcano.hellogas.domain.model.Gasolinera> gasolineras = new ArrayList<com.enstax.cesarcano.hellogas.domain.model.Gasolinera>();
         try {
                 JSONObject place = jsonObject.getJSONObject("response");
             Log.d("GET DETALLE", "response: " + place.toString());
