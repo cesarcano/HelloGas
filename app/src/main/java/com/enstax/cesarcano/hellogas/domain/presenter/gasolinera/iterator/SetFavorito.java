@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 /**
- * Created by cesar on 5/05/18.
+ * Created by cesarcanojmz@gmail.com
  */
 
 public class SetFavorito implements Gasolinera.SetFavorito, WebTask.Presenter {

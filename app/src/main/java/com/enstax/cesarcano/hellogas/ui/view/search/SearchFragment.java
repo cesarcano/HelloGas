@@ -1,9 +1,5 @@
 package com.enstax.cesarcano.hellogas.ui.view.search;
 
-/**
- * Created by cesar.
- */
-
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.location.Location;

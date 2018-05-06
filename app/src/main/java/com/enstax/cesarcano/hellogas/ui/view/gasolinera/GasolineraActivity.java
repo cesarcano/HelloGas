@@ -5,7 +5,6 @@ import android.os.Bundle;
 
 import com.enstax.cesarcano.hellogas.R;
 import com.enstax.cesarcano.hellogas.ui.helper.base.BaseActivity;
-import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
 
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;

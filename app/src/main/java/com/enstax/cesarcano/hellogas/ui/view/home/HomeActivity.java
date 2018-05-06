@@ -28,6 +28,10 @@ import com.enstax.cesarcano.hellogas.ui.view.search.SearchFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+/**
+ * Created by cesarcanojmz@gmail.com
+ */
+
 public class HomeActivity extends BaseActivity implements HomeContract.View{
 
     private HomeContract.Presenter presenter;

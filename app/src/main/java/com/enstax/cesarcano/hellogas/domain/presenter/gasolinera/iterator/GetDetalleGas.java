@@ -10,10 +10,8 @@ import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.GasolineraPrese
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.ArrayList;
-
 /**
- * Created by cesar on 29/04/18.
+ * Created by cesarcanojmz@gmail.com
  */
 
 public class GetDetalleGas implements WebTask.Presenter, Gasolinera.Get  {

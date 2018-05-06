@@ -17,6 +17,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ * Created by cesarcanojmz@gmail.com
+ */
+
 public class SignUpActivity extends BaseActivity implements SignUpContract.View {
 
     private static final String TAG = "REGISTRO DE USUARIO";

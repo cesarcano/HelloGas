@@ -2,21 +2,21 @@ package com.enstax.cesarcano.hellogas.ui.view.gasolinera.comentarios;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.enstax.cesarcano.hellogas.R;
+import com.enstax.cesarcano.hellogas.domain.model.Comentario;
+import com.enstax.cesarcano.hellogas.ui.helper.base.TabFragment;
 
+import java.util.ArrayList;
 
 /**
  * Created by cesarcanojmz@gmail.com
  */
 
-public class ComentariosGasolinera extends Fragment {
-
-
+public class ComentariosGasolinera extends TabFragment implements  ComentGasContract.View {
     private String idgasolinera;
 
     @Nullable
@@ -28,5 +28,30 @@ public class ComentariosGasolinera extends Fragment {
 
     public void setIdgasolinera(String idgasolinera) {
         this.idgasolinera = idgasolinera;
+    }
+
+    @Override
+    public void loading() {
+        showProgressDialog();
+    }
+
+    @Override
+    public void error() {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void loadList(ArrayList<Comentario> comentarios) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void loadMComent(Comentario comentario) {
+        hideProgressDialog();
+    }
+
+    @Override
+    public void likeComent(Boolean b) {
+        showProgressDialog();
     }
 }
