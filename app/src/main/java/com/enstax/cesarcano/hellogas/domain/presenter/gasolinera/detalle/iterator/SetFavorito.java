@@ -1,4 +1,4 @@
-package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator;
+package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator;
 
 
 import android.content.Context;
@@ -16,12 +16,12 @@ import org.json.JSONObject;
  * Created by cesarcanojmz@gmail.com
  */
 
-public class SetFavorito implements Gasolinera.SetFavorito, WebTask.Presenter {
+public class SetFavorito implements com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.SetFavorito, WebTask.Presenter {
 
     private Context context;
-    private Gasolinera.Iterator presenter;
+    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Iterator presenter;
 
-    public SetFavorito(Context context, Gasolinera.Iterator presenter) {
+    public SetFavorito(Context context, com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Iterator presenter) {
         this.context = context;
         this.presenter = presenter;
     }

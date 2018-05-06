@@ -1,11 +1,11 @@
-package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator;
+package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator;
 
 import android.content.Context;
 import android.util.Log;
 
 import com.enstax.cesarcano.hellogas.data.api.GApiTask;
 import com.enstax.cesarcano.hellogas.data.api.WebTask;
-import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.GasolineraPresenter;
+import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.GasolineraPresenter;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,11 +14,11 @@ import org.json.JSONObject;
  * Created by cesarcanojmz@gmail.com
  */
 
-public class GetDetalleGas implements WebTask.Presenter, Gasolinera.Get  {
+public class GetDetalleGas implements WebTask.Presenter, com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Get  {
 
 
     private Context context;
-    private Gasolinera.Iterator presenter;
+    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Iterator presenter;
 
     public GetDetalleGas(Context context, GasolineraPresenter presenter) {
         this.context = context;

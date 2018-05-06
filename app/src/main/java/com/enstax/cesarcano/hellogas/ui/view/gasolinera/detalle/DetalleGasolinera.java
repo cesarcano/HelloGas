@@ -18,7 +18,7 @@ import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
-import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.GasolineraPresenter;
+import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.GasolineraPresenter;
 import com.enstax.cesarcano.hellogas.ui.helper.base.TabFragment;
 import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
 import com.enstax.cesarcano.hellogas.ui.view.coment.ComentarioActivity;

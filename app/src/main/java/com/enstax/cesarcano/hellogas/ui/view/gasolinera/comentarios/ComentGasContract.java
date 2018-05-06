@@ -16,10 +16,14 @@ public interface ComentGasContract {
         void loadList(ArrayList<Comentario> comentarios);
         void loadMComent(Comentario comentario);
         void likeComent(Boolean b);
+        void updateComent(String id);
+        void loadComent(Comentario comentario);
     }
 
     interface Presenter extends BasePresenter<ComentGasContract.View> {
         void getComentarios(String gid);
         void likeIt(String gid);
+        void coment(String id);
+        void mComent(String uid);
     }
 }

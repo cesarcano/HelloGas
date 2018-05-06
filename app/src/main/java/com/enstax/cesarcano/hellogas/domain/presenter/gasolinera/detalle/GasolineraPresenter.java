@@ -1,25 +1,25 @@
-package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera;
+package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle;
 
 import android.content.Context;
 
 import com.enstax.cesarcano.hellogas.domain.model.Gasolinera;
 import com.enstax.cesarcano.hellogas.domain.presenter.favoritos.iterators.Favoritos;
-import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator.GetDetalleGas;
-import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator.SetFavorito;
+import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.GetDetalleGas;
+import com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.SetFavorito;
 import com.enstax.cesarcano.hellogas.ui.view.gasolinera.detalle.DetalleGasContract;
 import com.enstax.cesarcano.hellogas.ui.view.gasolinera.detalle.DetalleGasolinera;
-
 /**
- * Created by cesar on 29/04/18.
+ * Created by cesarcanojmz@gmail.com
  */
 
+
 public class GasolineraPresenter implements DetalleGasContract.Presenter,
-        com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator.Gasolinera.Iterator,
+        com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Iterator,
         Favoritos.Get {
     private DetalleGasContract.View view;
     private Context context;
-    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator.Gasolinera.Get get;
-    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator.Gasolinera.SetFavorito setFavorito;
+    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.Get get;
+    private com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator.Gasolinera.SetFavorito setFavorito;
 
     public GasolineraPresenter(DetalleGasolinera view, Context context) {
         this.view = view;

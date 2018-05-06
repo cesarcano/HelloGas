@@ -1,4 +1,4 @@
-package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.iterator;
+package com.enstax.cesarcano.hellogas.domain.presenter.gasolinera.detalle.iterator;
 
 /**
  * Created by cesarcanojmz@gmail.com
