@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -32,6 +33,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import com.enstax.cesarcano.hellogas.R;
 
+import butterknife.BindDrawable;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -65,6 +67,10 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
     @BindView(R.id.ratign_content) LinearLayout rating_content;
 
     private final float DEFAULT_ZOOM = (float) 14.5;
+
+    // Imgs
+    @BindDrawable(R.drawable.ic_favorite_null) Drawable no_favorito;
+    @BindDrawable(R.drawable.ic_favorite_true) Drawable favorito;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -121,6 +127,11 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
         startActivity(intent);
     }
 
+    @OnClick(R.id.iv_favorite)
+    public void favorite() {
+        presenter.setFavorite(idgasolinera);
+    }
+
     @Override
     public void loading() {
         showProgressDialog();
@@ -140,7 +151,12 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
     }
 
     @Override
-    public void heart() {
+    public void heart(Boolean b) {
+        if(b) {
+            iv_FavoriteGas.setImageDrawable(favorito);
+        } else {
+            iv_FavoriteGas.setImageDrawable(no_favorito);
+        }
         hideProgressDialog();
     }
 

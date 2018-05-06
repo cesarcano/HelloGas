@@ -9,7 +9,13 @@ public interface Gasolinera {
         void getInfo(String id);
     }
 
+    interface SetFavorito {
+        void setFavorito(String gid);
+    }
+
     interface Iterator {
         void load(com.enstax.cesarcano.hellogas.domain.model.Gasolinera gasolinera);
+        void favorite(Boolean b);
     }
+
 }

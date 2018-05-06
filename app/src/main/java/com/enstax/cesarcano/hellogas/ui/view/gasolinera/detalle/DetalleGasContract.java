@@ -11,11 +11,11 @@ import com.enstax.cesarcano.hellogas.ui.helper.base.BaseView;
 public interface DetalleGasContract {
     interface View extends BaseView{
         void loadInfo(Gasolinera gasolinera);
-        void heart();
+        void heart(Boolean b);
     }
 
     interface Presenter extends BasePresenter<DetalleGasContract.View>{
         void getInfo(String id);
-        void setFavorite();
+        void setFavorite(String gid);
     }
 }
