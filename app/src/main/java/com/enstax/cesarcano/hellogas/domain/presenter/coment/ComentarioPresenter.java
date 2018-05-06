@@ -8,7 +8,7 @@ import com.enstax.cesarcano.hellogas.ui.view.coment.ComentarioActivity;
 import com.enstax.cesarcano.hellogas.ui.view.coment.ComentarioContract;
 
 /**
- * Created by cesar on 30/04/18.
+ * Created by cesarcanojmz@gmail.com
  */
 
 public class ComentarioPresenter implements Coment.Iterator, ComentarioContract.Presenter{

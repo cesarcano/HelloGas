@@ -4,9 +4,8 @@ package com.enstax.cesarcano.hellogas.domain.presenter.coment.iterators;
 import com.enstax.cesarcano.hellogas.domain.model.Comentario;
 
 /**
- * Created by cesar on 30/04/18.
+ * Created by cesarcanojmz@gmail.com
  */
-
 public interface Coment {
     interface SetComentario {
         void update(Comentario comentario);

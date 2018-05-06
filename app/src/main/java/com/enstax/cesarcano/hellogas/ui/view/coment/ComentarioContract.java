@@ -5,7 +5,7 @@ import com.enstax.cesarcano.hellogas.ui.helper.base.BasePresenter;
 import com.enstax.cesarcano.hellogas.ui.helper.base.BaseView;
 
 /**
- * Created by cesar on 30/04/18.
+ * Created by cesarcanojmz@gmail.com
  */
 
 public interface ComentarioContract {
