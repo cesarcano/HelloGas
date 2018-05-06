@@ -10,11 +10,6 @@ import java.util.ArrayList;
 
 
 public interface Favoritos {
-    interface Set {
-        void add(String id);
-        void delete(String id);
-    }
-
     interface Get {
         void getAll();
     }
