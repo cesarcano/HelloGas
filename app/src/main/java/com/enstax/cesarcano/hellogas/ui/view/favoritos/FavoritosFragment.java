@@ -14,10 +14,15 @@ import com.enstax.cesarcano.hellogas.ui.helper.base.BaseFragment;
 import com.enstax.cesarcano.hellogas.ui.helper.utils.Util;
 import com.enstax.cesarcano.hellogas.ui.view.cercanas.adapter.ListGasolineras;
 import com.enstax.cesarcano.hellogas.ui.view.favoritos.adapter.ListFavoritos;
+import com.enstax.cesarcano.hellogas.ui.view.gasolinera.GasolineraActivity;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnItemClick;
 
 /**
  * Created by cesarcanojmz@gmail.com
@@ -25,13 +30,14 @@ import java.util.List;
 
 
 public class FavoritosFragment extends BaseFragment implements FavoritosContract.View {
-    private ListView listView;
+
+    @BindView(R.id.list_favoritos) ListView listView;
     private FavoritosContract.Presenter presenter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_favoritos, container, false);
 
-        listView = view.findViewById(R.id.list_favoritos);
+        ButterKnife.bind(this, view);
 
         presenter = new FavoritosPresenter(this);
         presenter.loadFavoritos();
@@ -61,5 +67,11 @@ public class FavoritosFragment extends BaseFragment implements FavoritosContract
         ListFavoritos adapter = new ListFavoritos(getContext(), gasList);
         listView.setAdapter(adapter);
         hideProgressDialog();
+    }
+
+    @OnItemClick(R.id.list_favoritos)
+    public void onItemClick(int position) {
+        Gasolinera gasolinera = (Gasolinera) listView.getItemAtPosition(position);
+        Util.setIntentExtra(getActivity(), GasolineraActivity.class, gasolinera.getId());
     }
 }

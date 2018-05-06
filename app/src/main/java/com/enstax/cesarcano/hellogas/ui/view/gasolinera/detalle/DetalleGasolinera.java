@@ -77,7 +77,7 @@ public class DetalleGasolinera extends TabFragment implements DetalleGasContract
         presenter = new GasolineraPresenter(this, getContext());
         presenter.attachView(this);
         presenter.getInfo(idgasolinera);
-        
+
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, final float rating, boolean fromUser) {
