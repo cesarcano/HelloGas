@@ -6,14 +6,14 @@ package com.enstax.cesarcano.hellogas.domain.model;
 
 public class Comentario {
     private String id;
-    private String usuario_id;
+    private String usuario;
     private float calificacion;
     private String comentario;
-    private long fecha_creacion;
+    private String fecha_creacion;
     private int likes;
     private int dislikes;
     private String item_id;
-    private int user_id;
+    private String user_id;
 
     public Comentario() {
     }
@@ -25,6 +25,8 @@ public class Comentario {
         this.comentario = comentario;
     }
 
+
+
     public String getId() {
         return id;
     }
@@ -33,12 +35,12 @@ public class Comentario {
         this.id = id;
     }
 
-    public String getUsuario_id() {
-        return usuario_id;
+    public String getUsuario() {
+        return usuario;
     }
 
-    public void setUsuario_id(String usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
     public float getCalificacion() {
@@ -57,11 +59,11 @@ public class Comentario {
         this.comentario = comentario;
     }
 
-    public long getFecha_creacion() {
+    public String getFecha_creacion() {
         return fecha_creacion;
     }
 
-    public void setFecha_creacion(long fecha_creacion) {
+    public void setFecha_creacion(String fecha_creacion) {
         this.fecha_creacion = fecha_creacion;
     }
 
@@ -89,11 +91,11 @@ public class Comentario {
         this.item_id = item_id;
     }
 
-    public int getUser_id() {
+    public String getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(String user_id) {
         this.user_id = user_id;
     }
 }
